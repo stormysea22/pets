@@ -20,7 +20,7 @@ module.exports = {
     },
 
     update: (req, res) => {
-        Pet.updateOne({ _id: req.params.id }, req.body, { runValidators: true })
+        Pet.updateOne({ _id: req.params.id }, req.body, { runValidators: true, context: 'query' })
             .then(data => res.json({ results:data }))
             .catch(err => res.status(404).json({errors:err.errors}))
     },
