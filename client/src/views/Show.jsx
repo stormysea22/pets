@@ -21,6 +21,7 @@ const Show = props => {
     }
 
     const handleLikePet = id => {
+        pet.likes ++
         Axios.post(`http://localhost:8000/api/pets/${id}/like`)
             .then(res => {
                 setShowLike(false);
